@@ -1,0 +1,8 @@
+allow_embedding: false
+package_name: spotify_song_recommender
+db_schema: {}
+name: spotify_song_recommender
+startup_form: Form1
+renamed: true
+runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox}
+services: []

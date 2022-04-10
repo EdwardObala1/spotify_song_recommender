@@ -1,0 +1,87 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: '#191414', foreground: '', border: '', visible: true,
+    role: null, html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: TextBox
+    properties: {role: dense, align: left, hide_text: false, tooltip: '', placeholder: Put in the song you want to recommend,
+      border: '', enabled: true, foreground: 'theme:White', visible: true, text: '',
+      font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
+      italic: false, background: '', bold: false, underline: false}
+    name: track_name
+    layout_properties: {grid_position: 'CRRUVQ,GDRJGA', row_background: ''}
+  - type: DropDown
+    properties:
+      role: null
+      align: full
+      tooltip: white
+      placeholder: Number of songs
+      border: ''
+      enabled: true
+      foreground: white
+      items: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+      visible: true
+      font_size: null
+      font: ''
+      spacing_above: small
+      spacing_below: small
+      italic: true
+      background: ''
+      bold: false
+      underline: false
+      include_placeholder: true
+    name: drop_down_1
+    layout_properties: {grid_position: 'CRRUVQ,RZQKMR', row_background: ''}
+    event_bindings: {change: drop_down_1_change}
+    data_bindings: []
+  - type: Button
+    properties: {role: primary-color, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: RECOMMEND, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:spotify'}
+    name: recommend
+    layout_properties: {grid_position: 'SIMQHQ,MKFYAV', row_background: ''}
+    event_bindings: {click: recommend_click}
+  - type: RichText
+    properties: {role: null, align: center, tooltip: '', enable_slots: true, border: '',
+      foreground: white, visible: true, font_size: null, content: The Song you are seeking recommendations from does not exists in our system data,
+      font: Montserrat Light Italic, spacing_above: small, spacing_below: small, data: null,
+      background: '#1DB954', format: markdown}
+    name: rich_text_1
+    layout_properties: {grid_position: 'RTHQBD,PNRCBG', row_background: '#1DB954',
+      full_width_row: false}
+    event_bindings: {}
+  - type: DataGrid
+    properties:
+      role: null
+      columns:
+      - {id: AFORWL, title: Artist, data_key: artist}
+      - {id: YWQOWE, title: Song, data_key: song}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: white
+      rows_per_page: 20
+      visible: true
+      wrap_on: never
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_1
+    layout_properties: {grid_position: 'MITVOJ,WTZYLN'}
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: Form1.RowTemplate1}
+      name: repeating_panel_1
+      layout_properties: {}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
